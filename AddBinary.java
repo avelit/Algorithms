@@ -3,28 +3,28 @@ public class Solution {
         StringBuilder builder = new StringBuilder();
         int aLength = a.length();
         int bLength = b.length();
-        int lA = 0;
-        int lB = 0;
-        int l = 0;
-        while (aLength > 0 || bLength > 0) {// 1 0
+        int numA = 0;
+        int numB = 0;
+        int num = 0;
+        while (aLength > 0 || bLength > 0) {
             if (aLength <= 0) {
-                lA = 0;
+                numA = 0;
             } else {
-                lA = a.charAt(aLength - 1) - '0';//1
+                numA = a.charAt(aLength - 1) - '0';
             }
             if (bLength <= 0) {
-                lB = 0;
+                numB = 0;
             } else {
-                lB = b.charAt(bLength - 1) - '0';//1
+                numB = b.charAt(bLength - 1) - '0';
             }
-            l = l + lA + lB;//2
-            builder.insert(0, l % 2);//0
-            l /= 2;//1
-            aLength--;//1
-            bLength--;//0
+            num += numA + numB;
+            builder.insert(0, num % 2);
+            num /= 2;
+            aLength--;
+            bLength--;
         }
-        if (l == 1) {
-            builder.insert(0, l);
+        if (num == 1) {
+            builder.insert(0, num);
         }
         return builder.toString();
     }
